@@ -12,7 +12,7 @@
 \usepackage[utf8]{inputenc}
 
 % use language german
-\usepackage[ngerman]{babel}
+%\usepackage[ngerman]{babel}
 
 % format page size
 \usepackage{geometry}
@@ -44,7 +44,7 @@
 
 % author and institute
 \newcommand{\AUTHOR}{Marius Zindel }
-\newcommand{\INSTITUTE}{Hochschule für Technik Rapperswil}
+\newcommand{\INSTITUTE}{University of applied sciences Rapperswil}
 
 % define header and footer
 \usepackage{fancyhdr}
@@ -53,7 +53,7 @@
 \fancyhead[RO]{\AUTHOR| \INSTITUTE}
 \fancyhead[LO]{\TITLE}
 \fancyfoot[RO]{\DELIVERYDATE}
-\fancyfoot[LO]{Created with \LaTeX}
+\fancyfoot[LO]{CC BY-NC-SA 4.0}
 \renewcommand\headrulewidth{0pt}
 \renewcommand\footrulewidth{0pt}
 \headsep = -2pt
@@ -88,6 +88,12 @@
 \titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 \newcommand{\colorsubsubsection}[1]{%
     \colorbox{subSubSectionColor!60}{\parbox{0.98\linewidth}{\vspace{-1pt}\color{black}\ #1 \vspace{-2pt}}}}
+
+% define paragraph format
+\titleformat{name=\paragraph}{\sffamily\small\bfseries}{}{0pt}{\colorparagraph}
+\titlespacing*{\paragraph}{0pt}{0pt}{0pt}
+\newcommand{\colorparagraph}[1]{%
+    \color{sectionColor}\ #1 \vspace{-2pt}}
 
 % import code listings
 \usepackage{listings}
