@@ -1,0 +1,145 @@
+%! Licence = CC BY-NC-SA 4.0
+
+%! Author = mariuszindel
+%! Date = 06. Jul 2021
+%! Project = DS1-Summary
+
+\section{Application Protocols}
+
+\paragraph{Designing custom protocols}
+\begin{itemize}[label={\textcolor{ForestGreen}{+}}]
+    \item Can be more efficient (space / performance)
+\end{itemize} 
+\begin{itemize}[label={\textcolor{red}{--}}]
+    \item Needs more time to develop / test
+\end{itemize} 
+
+\paragraph{Protocol generators:} (ASN1, ProtoBuf)
+\begin{itemize}[label={\textcolor{ForestGreen}{+}}]
+    \item IDL (interface description language) generates code
+    \item Standard
+\end{itemize} 
+\begin{itemize}[label={\textcolor{red}{--}}]
+    \item Has more overhead
+\end{itemize} 
+
+\subsection{Protocols Example: ASN1}
+\begin{itemize}
+    \item Define data structures
+    \item Can be serialized and deserialized
+    \item Generic binary protocol
+\end{itemize}
+
+\subsection{Protocol Buffers (ProtoBuf)}
+\begin{itemize}
+    \item Data serialization system from Google
+    \item Design goals: smaller and faster than XML
+    \item Use: nearly all inter-machine communication at Google
+    \item Contains only numbers, not field names
+\end{itemize}
+
+\subsection{gRPC}
+\begin{itemize}
+    \item Uses HTTP/2 for transport
+    \item Uses ProtoBuf
+    \item Features
+    \begin{itemize}
+        \item Authentication
+        \item Bidirectional Streaming
+        \item Flow Control
+        \item Blocking / Nonblocking bindings
+        \item Cancellation and timeouts
+    \end{itemize}
+    \item Define services and messages
+\end{itemize}
+
+\subsection{JSON + REST}
+\begin{itemize}
+    \item Human readable text to transmit data
+    \item Often used for web apps
+    \item Parsing overhead
+    \item JSON slower than binary protocol
+\end{itemize}
+
+\subsection{HTTP}
+\begin{itemize}
+    \item Text based protocol
+    \item Request / Response
+    \item Request Methods
+    \begin{itemize}
+        \item GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH
+    \end{itemize}
+    \item Stateless
+    \item HTTP resources identified by URL
+\end{itemize}
+\vspace{-8pt}
+\begin{center}
+    \includegraphics[width=\linewidth]{06-app_protocols/http.png}    
+\end{center}
+
+\subsection{DNS}
+\begin{itemize}
+    \item Translates human readable domain to IP
+    \item Phonebook of the Internet
+    \item Hierarchical and decentralized naming system
+    \item Caching/forwarding DNS
+    \item Recursive servers
+    \item Authoritative servers
+    \item Restriction to 13 root servers (512 byte packet limit)
+\end{itemize}
+
+\begin{center}
+    \includegraphics[scale=.3]{06-app_protocols/dns.png}
+\end{center}
+\textbf{Type of records:}
+\begin{itemize}
+    \item SOA: Start of Authority
+    \item NS
+    \item MX
+    \item A/AAAA
+    \item TXT
+    \item PTR
+\end{itemize}
+\textbf{DNSSEC}
+\begin{itemize}
+    \item Authenticated and data integrity, NOT confidentiality
+    \item Can be used to bootstrap other security systems
+    \item KSK: key singing keys to sign ZSK
+    \item ZSK: zone signing keys to sign records
+\end{itemize}
+
+\subsubsection{The DNS war}
+\textbf{DoH (DNS over HTTP)}
+\begin{itemize}
+    \item Provides confidentiality of lookups in transit
+    \item Uses standard HTTP/2 on Port 443
+    \item Trivially deployed, DNS response served like web pages
+    \item Performance: TCP+TLS handshake = 2/3 RTT
+    \item Difficult upgrade path for clients
+    \item Browsers can perform DNS queries using JavaScript
+\end{itemize}
+\textbf{DoT (DNS over TLS)}
+\begin{itemize}
+    \item Provides confidentiality of lookups in transit
+    \item DNS over TLS, separate port 853, can be blocked
+    \item Widely supported by serving software and public resolvers
+    \item Performance: TCP+TLS handshake = 2/3 RTT
+    \item Easy upgrade path for clients
+\end{itemize}
+
+\subsection{Let's Encrypt}
+\begin{itemize}
+    \item Non-profit CA
+    \item Provides certificates for TLS
+    \item No Identity Checks
+    \item Certificates are valid for 90 days
+    \item Automated renewal
+    \begin{itemize}
+        \item ACME protocol: challenge response
+    \end{itemize}
+\end{itemize}
+
+
+\vfill
+$ $
+\columnbreak

@@ -1,0 +1,33 @@
+%! Licence = CC BY-NC-SA 4.0
+
+%! Author = mariuszindel
+%! Date = 06. Jul 2021
+%! Project = DS1-Summary
+
+
+%import template
+\input{./style/template.tex}
+
+
+\newcommand{\TITLE}{Cheat Sheet Distributed Systems \& Blockchain (DS1)}
+\newcommand{\DELIVERYDATE}{\today}
+
+\begin{document}
+
+	\begin{multicols*}{4}
+		\setlength{\columnseprule}{0.4pt}
+		\footnotesize
+
+		\input{content/01-Introduction.tex}
+		\input{content/02-Network_protocols.tex}
+		\input{content/03-Virtualization.tex}
+		\input{content/04-load_balancing.tex}
+		\input{content/05-Auth.tex}
+		\input{content/06-App_protocols.tex}
+		\input{content/07-VCS.tex}
+		\input{content/08-Blockchain.tex}
+		\input{content/09-Deployment.tex}
+		
+	\end{multicols*}
+
+\end{document}

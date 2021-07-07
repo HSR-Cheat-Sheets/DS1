@@ -1,0 +1,47 @@
+%! Licence = CC BY-NC-SA 4.0
+
+%! Author = mariuszindel
+%! Date = 06. Jul 2021
+%! Project = DS1-Summary
+
+\section{Virtualization}
+
+\begin{minipage}{0.33\linewidth}
+    \begin{center}
+        \includegraphics[scale=.3]{03-Virtualization/VM.png}
+    \end{center}    
+\end{minipage}
+\begin{minipage}{0.34\linewidth}
+    \begin{center}
+        \includegraphics[scale=.3]{03-Virtualization/Container.png}
+    \end{center}    
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+    \begin{center}
+        \includegraphics[scale=.3]{03-Virtualization/Both.png}
+    \end{center}    
+\end{minipage}
+
+\subsection{Virtual Machine}
+\begin{itemize}[label={\textcolor{ForestGreen}{+}}]
+    \item App can access all OS resources
+    \item Live migrations
+\end{itemize}
+\begin{itemize}[label={\textcolor{ForestGreen}{+}/\textcolor{red}{--}}]
+    \item Pre allocates memory
+    \item Full isolation
+\end{itemize}
+
+\subsection{Container}
+\begin{itemize}[label={\textcolor{ForestGreen}{+}}]
+    \item Reduced IT management resources
+    \item Reduced size of snapshots
+    \item Quicker spinning up apps
+\end{itemize}
+\begin{itemize}[label={\textcolor{ForestGreen}{+}/\textcolor{red}{--}}]
+    \item Available memory is shared
+    \item Process-based isolation (share same kernel)
+\end{itemize}
+\vfill
+$ $
+\columnbreak
